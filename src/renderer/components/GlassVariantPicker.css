@@ -1,0 +1,62 @@
+/**
+ * SimplePad - Glass Variant Picker Styles
+ */
+
+.glass-variant-picker {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--spacing-sm);
+}
+
+.glass-variant-item {
+    position: relative;
+    aspect-ratio: 1;
+    min-width: 44px;
+    border: 2px solid var(--glass-border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    overflow: hidden;
+}
+
+.glass-variant-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+}
+
+.glass-variant-item:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.glass-variant-item.selected {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.3);
+}
+
+.glass-variant-number {
+    position: absolute;
+    bottom: 2px;
+    right: 4px;
+    font-size: 10px;
+    font-weight: var(--font-weight-semibold);
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.glass-variant-check {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}

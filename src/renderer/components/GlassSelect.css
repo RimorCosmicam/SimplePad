@@ -1,0 +1,110 @@
+/**
+ * GlassSelect Styles
+ */
+
+.glass-select-container {
+    position: relative;
+    width: 100%;
+}
+
+.glass-select-trigger {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    backdrop-filter: blur(10px);
+}
+
+.glass-select-trigger:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.glass-select-trigger.active {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(0, 122, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.15);
+}
+
+.glass-select-value {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.glass-select-arrow {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.active .glass-select-arrow {
+    transform: rotate(180deg);
+}
+
+.glass-select-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transform-origin: top center;
+}
+
+.glass-select-option {
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.15s ease;
+}
+
+.glass-select-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.glass-select-option.selected {
+    background: rgba(0, 122, 255, 0.2);
+    color: #007AFF;
+    font-weight: 600;
+}
+
+.glass-select-check {
+    font-size: 14px;
+}
+
+/* Animations */
+@keyframes glass-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.animate-in {
+    animation: glass-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

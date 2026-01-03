@@ -1,0 +1,16 @@
+/**
+ * SimplePad - Pad Grid Styles
+ */
+
+.pad-grid {
+    display: grid;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+}
+
+/* Responsive gap adjustment */
+@media (max-width: 600px) {
+    .pad-grid {
+        gap: var(--spacing-sm);
+    }
+}

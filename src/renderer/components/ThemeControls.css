@@ -1,0 +1,158 @@
+/**
+ * SimplePad - Theme Controls Styles
+ */
+
+.theme-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Type Selector */
+.theme-type-selector {
+    display: flex;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.theme-type-btn {
+    flex: 1;
+    padding: var(--spacing-sm);
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.theme-type-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-primary);
+}
+
+.theme-type-btn.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--color-text-primary);
+}
+
+/* Theme Section */
+.theme-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.theme-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: var(--spacing-xs);
+}
+
+/* Color Picker */
+.color-picker-row {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.color-picker {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid var(--glass-border);
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+.color-picker::-webkit-color-swatch {
+    border-radius: 4px;
+    border: none;
+}
+
+.color-input {
+    flex: 1;
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: var(--font-size-sm);
+}
+
+/* Slider Row */
+.slider-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.slider-row .slider {
+    flex: 1;
+}
+
+.slider-value {
+    min-width: 48px;
+    text-align: right;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+/* Gradient Preview */
+.gradient-preview {
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: var(--spacing-sm);
+}
+
+.gradient-stop-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.gradient-stop-row .color-picker {
+    width: 32px;
+    height: 32px;
+}
+
+.gradient-stop-row .slider {
+    flex: 1;
+}
+
+.gradient-stop-row .slider-value {
+    min-width: 40px;
+}
+
+/* Image Preview */
+.image-preview {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Toggle Row */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-row .theme-label {
+    margin: 0;
+}

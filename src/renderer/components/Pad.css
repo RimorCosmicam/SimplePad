@@ -1,0 +1,229 @@
+/**
+ * SimplePad - Pad Component Styles
+ */
+
+.pad {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    min-height: 60px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--pad-glass-radius, 16px);
+    background: var(--glass-bg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    -webkit-app-region: no-drag;
+    box-shadow: var(--glass-shadow);
+}
+
+/* Base shape overrides */
+.pad-shape-square {
+    border-radius: 0;
+}
+
+.pad-shape-rounded {
+    border-radius: 16px;
+}
+
+.pad-shape-circle {
+    border-radius: 50%;
+    clip-path: circle(50% at 50% 50%);
+}
+
+/* Complex shapes using clip-path */
+.pad-shape-diamond {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.pad-shape-hexagon {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.pad-shape-octagon {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.pad-shape-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.pad-shape-star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.pad-shape-heart {
+    clip-path: path('M50,88.9 C25.5,73 1.5,50 1.5,30 C1.5,15.5 13.5,3.5 28,3.5 C36.5,3.5 44.5,7.9 50,14.6 C55.5,7.9 63.5,3.5 72,3.5 C86.5,3.5 98.5,15.5 98.5,30 C98.5,50 74.5,73 50,88.9 Z');
+}
+
+.pad-shape-squircle {
+    border-radius: 35%;
+}
+
+/* When using clip-path, border needs special handling (pseudo-element) */
+[class*="pad-shape-"]:not(.pad-shape-square):not(.pad-shape-rounded):not(.pad-shape-circle):not(.pad-shape-squircle) {
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+[class*="pad-shape-"]:not(.pad-shape-square):not(.pad-shape-rounded):not(.pad-shape-circle):not(.pad-shape-squircle)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--glass-border);
+    clip-path: inherit;
+    pointer-events: none;
+}
+
+/* Glass variant - uses inline CSS variables from component */
+.pad-glass {
+    background: var(--pad-glass-tint, rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border-color: rgba(255, 255, 255, calc(var(--pad-glass-opacity, 0.6) * 0.3));
+    border-radius: var(--pad-glass-radius, 16px);
+}
+
+/* Apply opacity to background */
+.pad-glass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, calc(var(--pad-glass-opacity, 0.6) * 0.15));
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.pad-glass-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* Empty pad */
+.pad-empty {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.pad-empty:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.pad-add-icon {
+    font-size: 28px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.3);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.pad-empty:hover .pad-add-icon {
+    color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+/* Configured pad */
+.pad-configured {
+    /* Shadow handled by base .pad or filter for clipped shapes */
+}
+
+.pad-configured:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.15));
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pad-configured:active {
+    transform: scale(0.98);
+}
+
+/* Playing state */
+.pad-playing {
+    border-color: var(--color-accent) !important;
+    filter: drop-shadow(0 0 8px rgba(0, 122, 255, 0.5)) !important;
+}
+
+/* Pad content */
+.pad-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    z-index: 1;
+    padding: var(--spacing-sm);
+    text-align: center;
+}
+
+.pad-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pad-keybinding {
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--color-accent);
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Playing indicator */
+.pad-playing-indicator {
+    position: absolute;
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 16px;
+}
+
+.pad-playing-bar {
+    width: 3px;
+    background: var(--color-accent);
+    border-radius: 1px;
+    animation: playingBars 0.8s ease-in-out infinite;
+}
+
+.pad-playing-bar:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.pad-playing-bar:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.pad-playing-bar:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes playingBars {
+
+    0%,
+    100% {
+        height: 4px;
+    }
+
+    50% {
+        height: 16px;
+    }
+}

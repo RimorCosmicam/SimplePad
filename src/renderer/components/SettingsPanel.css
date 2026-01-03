@@ -1,0 +1,215 @@
+/**
+ * SimplePad - Settings Panel Styles
+ */
+
+.settings-panel,
+.padconfig-panel,
+.about-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(20, 20, 30, 0.95);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-left: 1px solid var(--glass-border);
+}
+
+/* Panel Header */
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.panel-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+/* Panel Tabs */
+.panel-tabs {
+    display: flex;
+    gap: 2px;
+    padding: var(--spacing-sm);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.panel-tab {
+    flex: 1;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-tertiary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.panel-tab:hover {
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.panel-tab.active {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Panel Content */
+.panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+}
+
+.panel-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.section-title {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.section-desc {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    margin: 0;
+}
+
+/* Setting Row */
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+}
+
+.setting-row>span:first-child {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+}
+
+.slider-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.slider-group input[type="range"] {
+    width: 100px;
+}
+
+.slider-group>span {
+    min-width: 32px;
+    text-align: right;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+/* Grid Controls */
+.grid-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.grid-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.grid-control>span:first-child {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.grid-multiply {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-tertiary);
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.stepper button {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    color: var(--color-text-primary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.stepper button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stepper>span {
+    min-width: 28px;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+}
+
+/* Latency Buttons */
+.latency-buttons {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.latency-buttons .btn {
+    flex: 1;
+    font-size: var(--font-size-xs);
+}
+
+.latency-buttons .btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* About Button */
+.about-btn {
+    margin-top: var(--spacing-lg);
+}
+
+/* Panel Footer */
+.panel-footer {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--glass-border);
+}
+
+.panel-footer .btn {
+    flex: 1;
+}

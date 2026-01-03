@@ -1,0 +1,342 @@
+/**
+ * SimplePad - Main Window Styles
+ * Clean rebuild
+ */
+
+.main-window {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Corner radius is applied via style prop to match glass config */
+}
+
+.main-window.loading {
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: #007AFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Blur + Tint overlay - full window coverage */
+.blur-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main content area */
+.main-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    z-index: 2;
+}
+
+/* Titlebar */
+.titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    padding: 0 16px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.titlebar-spacer {
+    width: 70px;
+}
+
+.titlebar-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.titlebar-minimal {
+    justify-content: flex-end;
+}
+
+.settings-btn {
+    opacity: 0.7;
+}
+
+.settings-btn:hover {
+    opacity: 1;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    padding-top: 0;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.sidebar-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+/* Settings sections */
+.settings-section {
+    margin-bottom: 24px;
+}
+
+.settings-section h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 12px 0;
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.setting-row span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.setting-row input[type="range"] {
+    width: 100px;
+}
+
+.setting-row input[type="color"] {
+    width: 40px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.setting-hint {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 4px 0 0 0;
+    font-style: italic;
+}
+
+.shape-select {
+    width: 100%;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.shape-select option {
+    background: #222;
+    color: white;
+}
+
+/* Variant grid */
+.variant-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+}
+
+.variant-btn {
+    padding: 8px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.variant-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.variant-btn.active {
+    background: #007AFF;
+    border-color: #007AFF;
+    color: white;
+}
+
+/* Toggle button */
+.toggle {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.toggle::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle.active {
+    background: #007AFF;
+}
+
+.toggle.active::after {
+    transform: translateX(20px);
+}
+
+/* Titlebar left section for track recorder */
+.titlebar-left {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+
+/* Track Recorder Section (below titlebar) */
+.track-recorder-section {
+    display: flex;
+    justify-content: center;
+    padding: 8px 16px;
+}
+
+/* Looper section */
+.looper-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.looper-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Project management dropdown */
+.project-dropdown {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 5;
+}
+
+.project-dropdown .glass-select {
+    min-width: 140px;
+}
+
+/* Make dropdown open upward */
+.project-dropdown .glass-select-dropdown {
+    top: auto;
+    bottom: calc(100% + 6px);
+    transform-origin: bottom center;
+}
+
+/* Keybind button */
+.keybind-btn {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    color: #007AFF;
+    font-size: 13px;
+    font-weight: 600;
+    min-width: 60px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.keybind-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.keybind-btn.listening {
+    border-color: #007AFF;
+    background: rgba(0, 122, 255, 0.2);
+    animation: pulse-key 1s infinite;
+}
+
+@keyframes pulse-key {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
