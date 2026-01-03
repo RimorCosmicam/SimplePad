@@ -4,7 +4,7 @@ A sleek, modern soundpad application built with Electron and featuring Apple's L
 
 ![SimplePad](https://img.shields.io/badge/version-1.0.0-blue) ![macOS](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-![SimplePad Screenshot](./readme.jpg)
+![SimplePad Screenshot](./readme.jpeg)
 
 ## ✨ Features
 
