@@ -55,7 +55,7 @@ A sleek, modern soundpad application built with Electron and featuring Apple's L
 |----------|--------|
 | `1` - `9` | Play loop 1-9 once |
 | `Cmd + 1` - `Cmd + 0` | Toggle loop 1-10 |
-| `Shift + Cmd + 0` - `Shift + Cmd + 9` | Toggle loops 11-20 |
+| `Shift + Cmd + 1` - `Shift + Cmd + 0` | Toggle loops 11-20 |
 
 ### General
 | Shortcut | Action |
