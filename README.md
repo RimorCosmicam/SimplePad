@@ -54,8 +54,7 @@ A sleek, modern soundpad application built with Electron and featuring Apple's L
 | Shortcut | Action |
 |----------|--------|
 | `1` - `9` | Play loop 1-9 once |
-| `Cmd + 1` - `Cmd + 9` | Toggle loop 1-9 |
-| `Cmd + 0` | Toggle loop 10 |
+| `Cmd + 1` - `Cmd + 0` | Toggle loop 1-10 |
 | `Shift + Cmd + 0` - `Shift + Cmd + 9` | Toggle loops 11-20 |
 
 ### General
@@ -148,7 +147,6 @@ npm run build
 
 ### Special Thanks
 - The Electron and React communities
-- Apple for the beautiful Liquid Glass design inspiration
 
 ---
 
